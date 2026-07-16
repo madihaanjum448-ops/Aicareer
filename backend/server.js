@@ -31,7 +31,10 @@ app.get('/health', (req, res) => {
 });
 
 // Database connection
-const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://127.0.0.1:27017/careerpilot';
+const MONGODB_URI =
+  process.env.MONGODB_URI ||
+  process.env.MONGO_URI ||
+  'mongodb://127.0.0.1:27017/careerpilot';
 
 mongoose.connect(MONGODB_URI)
   .then(() => {
