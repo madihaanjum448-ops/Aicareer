@@ -106,7 +106,7 @@ function App() {
           <Route path="/profile" element={<Profile onLogout={handleLogout} />} />
           <Route path="/interview" element={<InterviewSimulator />} />
           <Route path="/mock-test" element={<MockTest />} />
-          <Route path="/github-analyzer" element={<GitHubAnalyzer />} />
+          <Route path="/GitHub-analyzer" element={<GitHubAnalyzer />} />
           <Route path="/linkedin-analyzer" element={<LinkedInAnalyzer />} />
         </Route>
 
@@ -118,5 +118,3 @@ function App() {
 }
 
 export default App;
-
-

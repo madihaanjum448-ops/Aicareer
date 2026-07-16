@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
   ArrowLeft, CheckCircle2, AlertCircle, Sparkles,
-  Linkedin, Trophy, FileText, Send, Sparkle
+  Globe, Trophy, FileText, Send, Sparkle
 } from 'lucide-react';
 
 const LinkedInAnalyzer = () => {
@@ -96,7 +96,7 @@ const LinkedInAnalyzer = () => {
         <div className="absolute -top-12 -right-12 w-48 h-48 bg-gradient-to-br from-brand-indigo/8 to-brand-purple/8 rounded-full blur-3xl pointer-events-none" />
         <div className="relative flex justify-between items-center">
           <div className="space-y-2">
-            <span className="badge badge-indigo inline-flex"><Linkedin size={10} /> LinkedIn Optimizer</span>
+            <span className="badge badge-indigo inline-flex"><Globe size={10} /> LinkedIn Optimizer</span>
             <h1 className="text-3xl font-black text-brand-slate">LinkedIn <span className="gradient-text">Analyzer</span></h1>
             <p className="text-sm text-slate-400 max-w-xl">
               Audit your LinkedIn profile. Paste your Headline, About, or Experience section to check keyword optimization and reach recruiters.
@@ -142,7 +142,7 @@ const LinkedInAnalyzer = () => {
                 className="glass-card rounded-3xl p-6 space-y-6">
                 <div>
                   <h3 className="text-base font-bold text-slate-800 flex items-center gap-2">
-                    <Linkedin size={16} className="text-[#0A66C2]" /> LinkedIn Optimization Scorecard
+                    <Globe size={16} className="text-[#0A66C2]" /> LinkedIn Optimization Scorecard
                   </h3>
                   <p className="text-xs text-slate-400 mt-1">Audit finalized on {result.date}</p>
                 </div>

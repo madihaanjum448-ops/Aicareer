@@ -12,7 +12,7 @@ const QUICK_SUGGESTIONS = [
 const AI_RESPONSES = {
   resume: [
     "Great question! Here are my top resume tips:\n\n• **Tailor it** to each job description\n• Add **quantifiable achievements** (e.g., \"Increased performance by 40%\")\n• Keep it **1 page** for early career\n• Use **action verbs** like Built, Designed, Led\n• Include a clear **skills section** with relevant technologies\n\nWant me to analyze your uploaded resume for specific improvements? 🚀",
-    "Your resume is your first impression! Make sure to:\n\n✅ Use ATS-friendly formatting (no tables/columns)\n✅ List projects with GitHub links\n✅ Highlight measurable impact\n✅ Include relevant certifications\n\nHead to the Dashboard to upload and score your resume with AI!",
+    "Your resume is your first impression! Make sure to:\n\n✅ Use ATS-friendly formatting (no tables/columns)\n✅ List projects with Globe links\n✅ Highlight measurable impact\n✅ Include relevant certifications\n\nHead to the Dashboard to upload and score your resume with AI!",
   ],
   career: [
     "Based on trending tech careers in 2026, here are the hottest paths:\n\n🔥 **AI/ML Engineer** — Highest demand, great pay\n💻 **Full Stack Developer** — Always in demand\n☁️ **Cloud/DevOps Engineer** — Essential for every company\n🔐 **Cybersecurity Engineer** — Critical shortage\n\nSelect a career goal on your Dashboard to get a personalized skill gap analysis!",

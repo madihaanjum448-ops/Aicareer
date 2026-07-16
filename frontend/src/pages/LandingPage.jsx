@@ -6,7 +6,7 @@ import {
   Sparkles, ArrowRight, Play, Brain, FileSearch, Target,
   Map, BookOpen, Briefcase, Award, BarChart3, Bot,
   ChevronRight, Star, Zap, Shield, TrendingUp, Users,
-  CheckCircle, Github, Linkedin, Twitter, Menu, X
+  CheckCircle, Menu, X
 } from 'lucide-react';
 
 /* ─────────────────────────────────────────────
@@ -239,11 +239,16 @@ const HeroSection = () => {
 ───────────────────────────────────────────── */
 const StatsSection = () => {
   const stats = [
-    { value: 10000, suffix: '+', label: 'Students Guided', icon: Users, color: 'from-brand-indigo/10 to-brand-indigo/5', iconColor: 'text-brand-indigo', borderColor: 'border-brand-indigo/10' },
-    { value: 95, suffix: '%', label: 'Resume Accuracy', icon: Target, color: 'from-brand-purple/10 to-brand-purple/5', iconColor: 'text-brand-purple', borderColor: 'border-brand-purple/10' },
-    { value: 500, suffix: '+', label: 'Career Paths', icon: Map, color: 'from-emerald-500/10 to-emerald-500/5', iconColor: 'text-emerald-500', borderColor: 'border-emerald-500/10' },
-    { value: 1000, suffix: '+', label: 'Learning Resources', icon: BookOpen, color: 'from-amber-500/10 to-amber-500/5', iconColor: 'text-amber-500', borderColor: 'border-amber-500/10' },
-  ];
+  {
+    value: 10000,
+    suffix: '+',
+    label: 'Students Guided',
+    icon: Users,
+    color: 'from-brand-indigo/10 to-brand-indigo/5',
+    iconColor: 'text-brand-indigo',
+    borderColor: 'border-brand-indigo/10',
+  },
+];
 
   return (
     <section className="py-16 relative">
@@ -259,13 +264,13 @@ const StatsSection = () => {
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: i * 0.1 }}
                 className="stat-card text-center">
-                <div className={`inline-flex h-12 w-12 rounded-2xl bg-gradient-to-br ${stat.color} border ${stat.borderColor} items-center justify-center mb-4`}>
-                  <Icon size={22} className={stat.iconColor} />
-                </div>
+                <div className="inline-flex h-12 w-12 rounded-2xl bg-gray-200 items-center justify-center mb-4">
+                  ⭐
+                  </div>
                 <div className="text-4xl font-black text-slate-800 leading-none">
-                  <CountUp end={stat.value} duration={2.5} separator="," enableScrollSpy scrollSpyOnce />
-                  <span className="text-brand-indigo">{stat.suffix}</span>
-                </div>
+  {stat.value}
+  <span className="text-brand-indigo">{stat.suffix}</span>
+</div>
                 <p className="text-sm font-medium text-slate-400 mt-2">{stat.label}</p>
               </motion.div>
             );
@@ -523,11 +528,6 @@ const Footer = () => (
           © 2026 CareerPilot AI. Built with ❤️ for students & developers.
         </p>
         <div className="flex items-center gap-4">
-          {[Github, Twitter, Linkedin].map((Icon, i) => (
-            <button key={i} className="h-9 w-9 rounded-xl bg-slate-100 hover:bg-brand-lightBlue hover:text-brand-indigo flex items-center justify-center text-slate-400 transition-all duration-200">
-              <Icon size={16} />
-            </button>
-          ))}
         </div>
       </div>
     </div>

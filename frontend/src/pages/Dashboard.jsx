@@ -618,7 +618,7 @@ const Dashboard = () => {
             <span className="badge badge-purple text-[9px] py-0.5"><Sparkles size={9} /> SIH Finalist Portal</span>
             <h4 className="text-sm font-black text-slate-800 mt-2">Test Your Skills</h4>
             <p className="text-xs text-slate-500 leading-relaxed mt-1">
-              Participate in simulated technical tests, mock speech interviews, and audit your GitHub code profiles to unlock special badge ranks!
+              Participate in simulated technical tests, mock speech interviews, and audit your Globe code profiles to unlock special badge ranks!
             </p>
           </div>
           <button onClick={() => navigate('/interview')}

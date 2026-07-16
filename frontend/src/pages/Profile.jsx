@@ -5,7 +5,7 @@ import API from '../api';
 import {
   Mail, Award, Route, CheckCircle2,
   LogOut, ClipboardList, Sparkles, BookOpen,
-  Github, Linkedin, Globe, Trophy, Target, TrendingUp, Edit3
+  Globe, Trophy, Target, TrendingUp, Edit3
 } from 'lucide-react';
 
 const ACHIEVEMENT_BADGES = [
@@ -31,7 +31,7 @@ const Profile = ({ onLogout }) => {
   const [resume, setResume] = useState(null);
   const [roadmap, setRoadmap] = useState(null);
   const [loading, setLoading] = useState(true);
-  const [links, setLinks] = useState({ github: '', linkedin: '', portfolio: '' });
+  const [links, setLinks] = useState({ globe: '', linkedin: '', portfolio: '' });
   const [editLinks, setEditLinks] = useState(false);
 
   const fetchProfileData = async () => {
@@ -132,10 +132,10 @@ const Profile = ({ onLogout }) => {
           {/* Social links */}
           <div className="flex items-center gap-2">
             {[
-              { icon: Github, label: 'GitHub', href: links.github },
-              { icon: Linkedin, label: 'LinkedIn', href: links.linkedin },
-              { icon: Globe, label: 'Portfolio', href: links.portfolio },
-            ].map(({ icon: Icon, label, href }) => (
+  { key: 'globe', icon: Globe, label: 'GitHub', href: links.globe },
+  { key: 'linkedin', icon: Globe, label: 'LinkedIn', href: links.linkedin },
+  { key: 'portfolio', icon: Globe, label: 'Portfolio', href: links.portfolio },
+].map(({ icon: Icon, label, href }) => (
               <a key={label} href={href || '#'} target="_blank" rel="noopener noreferrer"
                 className="h-9 w-9 rounded-xl bg-slate-100 hover:bg-brand-lightBlue hover:text-brand-indigo flex items-center justify-center text-slate-400 transition-all duration-200"
                 title={label}>
@@ -154,10 +154,10 @@ const Profile = ({ onLogout }) => {
           <motion.div initial={{ height: 0, opacity: 0 }} animate={{ height: 'auto', opacity: 1 }} transition={{ duration: 0.3 }}
             className="px-8 pb-6 border-t border-slate-100 grid grid-cols-1 sm:grid-cols-3 gap-4 pt-5">
             {[
-              { key: 'github', icon: Github, placeholder: 'github.com/username' },
-              { key: 'linkedin', icon: Linkedin, placeholder: 'linkedin.com/in/username' },
-              { key: 'portfolio', icon: Globe, placeholder: 'yourportfolio.com' },
-            ].map(({ key, icon: Icon, placeholder }) => (
+  { key: 'globe', icon: Globe, placeholder: 'globe.com/username' },
+  { key: 'linkedin', icon: Globe, placeholder: 'linkedin.com/in/username' },
+  { key: 'portfolio', icon: Globe, placeholder: 'yourportfolio.com' },
+].map(({ key, icon: Icon, placeholder }) => (
               <div key={key} className="relative">
                 <Icon size={14} className="absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400" />
                 <input value={links[key]} onChange={e => setLinks(prev => ({ ...prev, [key]: e.target.value }))}

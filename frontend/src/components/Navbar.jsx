@@ -9,7 +9,7 @@ const PAGE_TITLES = {
   '/roadmap': { title: 'AI Learning Roadmap', subtitle: 'Your personalized 12-week plan' },
   '/interview': { title: 'AI Interview Simulator', subtitle: 'Practice with voice dictation' },
   '/mock-test': { title: 'Mock Test Portal', subtitle: 'Assess your coding & aptitude' },
-  '/github-analyzer': { title: 'GitHub Scorer', subtitle: 'Audit public repos & languages' },
+  '/globe-analyzer': { title: 'Globe Scorer', subtitle: 'Audit public repos & languages' },
   '/linkedin-analyzer': { title: 'LinkedIn Analyzer', subtitle: 'Optimize profile keywords' },
   '/internships': { title: 'Internship Finder', subtitle: 'AI-matched opportunities for you' },
   '/profile': { title: 'My Profile', subtitle: 'Manage your career profile' },

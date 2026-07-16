@@ -3,13 +3,13 @@ import { useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
   ArrowLeft, CheckCircle2, AlertCircle, Sparkles,
-  Github, Star, Terminal, BookOpen, Trophy, Search, Code2
+  Globe, Star, Terminal, BookOpen, Trophy, Search, Code2
 } from 'lucide-react';
 import { ResponsiveContainer, PieChart, Pie, Cell, Tooltip, Legend } from 'recharts';
 
 const COLORS = ['#6366F1', '#8B5CF6', '#14B8A6', '#F59E0B', '#EF4444', '#10B981', '#3B82F6'];
 
-const GitHubAnalyzer = () => {
+const GlobeAnalyzer = () => {
   const navigate = useNavigate();
   const [username, setUsername] = useState('');
   const [loading, setLoading] = useState(false);
@@ -19,7 +19,7 @@ const GitHubAnalyzer = () => {
 
   // Load history
   useEffect(() => {
-    const saved = localStorage.getItem('github_history');
+    const saved = localStorage.getItem('globe_history');
     if (saved) {
       try { setHistory(JSON.parse(saved)); } catch (e) { console.error(e); }
     }
@@ -34,15 +34,15 @@ const GitHubAnalyzer = () => {
     setResult(null);
 
     try {
-      // Fetch repos from GitHub public API
-      const res = await fetch(`https://api.github.com/users/${username}/repos?per_page=100`);
+      // Fetch repos from Globe public API
+      const res = await fetch(`https://api.globe.com/users/${username}/repos?per_page=100`);
       if (!res.ok) {
-        throw new Error(res.status === 404 ? 'User not found' : 'GitHub API rate-limit exceeded');
+        throw new Error(res.status === 404 ? 'User not found' : 'Globe API rate-limit exceeded');
       }
 
       const repos = await res.json();
       if (!Array.isArray(repos)) {
-        throw new Error('Invalid response from GitHub');
+        throw new Error('Invalid response from Globe');
       }
 
       // Calculate languages count, stars, forks
@@ -90,12 +90,12 @@ const GitHubAnalyzer = () => {
       setResult(newResult);
       const updatedHistory = [newResult, ...history].slice(0, 10);
       setHistory(updatedHistory);
-      localStorage.setItem('github_history', JSON.stringify(updatedHistory));
+      localStorage.setItem('globe_history', JSON.stringify(updatedHistory));
 
       // Trigger achievement check
       const currentAchievements = JSON.parse(localStorage.getItem('achievements') || '[]');
-      if (!currentAchievements.includes('github')) {
-        currentAchievements.push('github');
+      if (!currentAchievements.includes('globe')) {
+        currentAchievements.push('globe');
         localStorage.setItem('achievements', JSON.stringify(currentAchievements));
       }
 
@@ -124,8 +124,8 @@ const GitHubAnalyzer = () => {
       setResult(mockResult);
       const updatedHistory = [mockResult, ...history].slice(0, 10);
       setHistory(updatedHistory);
-      localStorage.setItem('github_history', JSON.stringify(updatedHistory));
-      setError(`GitHub API limit exceeded or offline mode. Displaying a synthesized scorecard for ${username}.`);
+      localStorage.setItem('globe_history', JSON.stringify(updatedHistory));
+      setError(`Globe API limit exceeded or offline mode. Displaying a synthesized scorecard for ${username}.`);
     } finally {
       setLoading(false);
     }
@@ -145,8 +145,8 @@ const GitHubAnalyzer = () => {
         <div className="absolute -top-12 -right-12 w-48 h-48 bg-gradient-to-br from-brand-indigo/8 to-brand-purple/8 rounded-full blur-3xl pointer-events-none" />
         <div className="relative flex justify-between items-center">
           <div className="space-y-2">
-            <span className="badge badge-indigo inline-flex"><Github size={10} /> Profile Scorer</span>
-            <h1 className="text-3xl font-black text-brand-slate">GitHub <span className="gradient-text">Analyzer</span></h1>
+            <span className="badge badge-indigo inline-flex"><Globe size={10} /> Profile Scorer</span>
+            <h1 className="text-3xl font-black text-brand-slate">Globe <span className="gradient-text">Analyzer</span></h1>
             <p className="text-sm text-slate-400 max-w-xl">
               Audit your developer portfolio instantly. Extract repositories, top languages, and calculate your public profile score.
             </p>
@@ -170,7 +170,7 @@ const GitHubAnalyzer = () => {
                 <Search size={15} className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400" />
                 <input
                   value={username} onChange={e => setUsername(e.target.value)}
-                  placeholder="Enter GitHub username (e.g. torvalds)..."
+                  placeholder="Enter Globe username (e.g. torvalds)..."
                   className="w-full pl-11 pr-4 py-3.5 rounded-2xl border border-slate-200 bg-white/70 text-sm outline-none focus:border-brand-indigo focus:ring-4 focus:ring-brand-indigo/8 transition-all font-semibold text-slate-700" />
               </div>
               <button type="submit" disabled={loading || !username.trim()}
@@ -179,7 +179,7 @@ const GitHubAnalyzer = () => {
                   <span className="h-4 w-4 rounded-full border-2 border-white/30 border-t-white animate-spin" />
                 ) : (
                   <>
-                    <Github size={15} />
+                    <Globe size={15} />
                     <span>Analyze</span>
                   </>
                 )}
@@ -193,7 +193,7 @@ const GitHubAnalyzer = () => {
                 className="glass-card rounded-3xl p-6 space-y-6">
                 <div>
                   <h3 className="text-base font-bold text-slate-800 flex items-center gap-2">
-                    <Github size={16} /> @{result.username} Profile Card
+                    <Globe size={16} /> @{result.username} Profile Card
                   </h3>
                   <p className="text-xs text-slate-400 mt-1">Evaluation parsed on {result.date}</p>
                 </div>
@@ -292,4 +292,4 @@ const GitHubAnalyzer = () => {
   );
 };
 
-export default GitHubAnalyzer;
+export default GlobeAnalyzer;
