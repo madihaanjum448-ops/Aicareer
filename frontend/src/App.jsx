@@ -1,12 +1,19 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate, Outlet } from 'react-router-dom';
+import LandingPage from './pages/LandingPage';
 import Auth from './pages/Auth';
 import Dashboard from './pages/Dashboard';
 import SkillGap from './pages/SkillGap';
 import Roadmap from './pages/Roadmap';
 import Profile from './pages/Profile';
+import Internships from './pages/Internships';
+import InterviewSimulator from './pages/InterviewSimulator';
+import MockTest from './pages/MockTest';
+import GitHubAnalyzer from './pages/GitHubAnalyzer';
+import LinkedInAnalyzer from './pages/LinkedInAnalyzer';
 import Sidebar from './components/Sidebar';
 import Navbar from './components/Navbar';
+import AIChatbot from './components/AIChatbot';
 
 // Protected Route wrapper component
 const ProtectedRoute = ({ user }) => {
@@ -27,6 +34,9 @@ const ProtectedRoute = ({ user }) => {
           <Outlet />
         </main>
       </div>
+
+      {/* Floating AI Chatbot */}
+      <AIChatbot />
     </div>
   );
 };
@@ -41,7 +51,7 @@ function App() {
     if (savedUser) {
       try {
         setUser(JSON.parse(savedUser));
-      } catch (e) {
+      } catch {
         localStorage.removeItem('user');
       }
     }
@@ -83,23 +93,30 @@ function App() {
 
       <Routes>
         {/* Public Routes */}
+        <Route path="/" element={<LandingPage />} />
         <Route path="/login" element={<Auth onLogin={handleLogin} mode="login" />} />
         <Route path="/signup" element={<Auth onLogin={handleLogin} mode="signup" />} />
         
         {/* Protected Routes */}
         <Route element={<ProtectedRoute user={user} />}>
-          <Route path="/" element={<Navigate to="/dashboard" replace />} />
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/skill-gap" element={<SkillGap />} />
           <Route path="/roadmap" element={<Roadmap />} />
+          <Route path="/internships" element={<Internships />} />
           <Route path="/profile" element={<Profile onLogout={handleLogout} />} />
+          <Route path="/interview" element={<InterviewSimulator />} />
+          <Route path="/mock-test" element={<MockTest />} />
+          <Route path="/github-analyzer" element={<GitHubAnalyzer />} />
+          <Route path="/linkedin-analyzer" element={<LinkedInAnalyzer />} />
         </Route>
 
         {/* Fallback Redirect */}
-        <Route path="*" element={<Navigate to="/login" replace />} />
+        <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
     </Router>
   );
 }
 
 export default App;
+
+
