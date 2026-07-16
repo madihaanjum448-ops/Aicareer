@@ -35,12 +35,15 @@ const MONGODB_URI =
   process.env.MONGODB_URI ||
   process.env.MONGO_URI ||
   'mongodb://127.0.0.1:27017/careerpilot';
+  console.log("MONGODB_URI exists:", !!process.env.MONGODB_URI);
+console.log("MONGO_URI exists:", !!process.env.MONGO_URI);
+console.log("Using URI:", MONGODB_URI.substring(0, 25));
 
 mongoose.connect(MONGODB_URI)
   .then(() => {
     console.log('Successfully connected to MongoDB.');
     // Start Server
-    const PORT = process.env.PORT || 5000;
+    const PORT = pxrocess.env.PORT || 5000;
     app.listen(PORT, () => {
       console.log(`Backend server is running on port ${PORT}`);
     });
