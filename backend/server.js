@@ -43,13 +43,16 @@ mongoose.connect(MONGODB_URI)
     });
   })
   .catch(err => {
-    console.error('Database connection error:', err);
-    console.log('Running backend server in sandbox/offline mode without MongoDB.');
-    
-    // In case MongoDB is not installed/running, we can boot Express anyway
-    // so the frontend works with fallbacks or mock data.
-    const PORT = process.env.PORT || 5000;
-    app.listen(PORT, () => {
-      console.log(`Backend server is running (OFFLINE MODE) on port ${PORT}`);
-    });
+  console.error("========== DATABASE CONNECTION ERROR ==========");
+  console.error(err);
+  console.error("Message:", err.message);
+  console.error("Stack:", err.stack);
+
+  console.log('Running backend server in sandbox/offline mode without MongoDB.');
+
+  const PORT = process.env.PORT || 5000;
+  app.listen(PORT, () => {
+    console.log(`Backend server is running (OFFLINE MODE) on port ${PORT}`);
   });
+});
+  
