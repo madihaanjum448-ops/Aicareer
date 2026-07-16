@@ -1,0 +1,143 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply text-slate-800 bg-white font-sans antialiased overflow-x-hidden min-h-screen;
+    background-color: #ffffff;
+  }
+}
+
+/* AI Futuristic Background Styles */
+.ai-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -10;
+  overflow: hidden;
+  background: #ffffff;
+  background-image: 
+    radial-gradient(at 10% 10%, rgba(234, 244, 255, 0.9) 0px, transparent 50%),
+    radial-gradient(at 90% 90%, rgba(243, 238, 255, 0.9) 0px, transparent 50%),
+    radial-gradient(at 80% 20%, rgba(139, 92, 246, 0.08) 0px, transparent 40%),
+    radial-gradient(at 40% 70%, rgba(234, 244, 255, 0.5) 0px, transparent 50%);
+}
+
+/* Glowing rings & orbital lines */
+.orbit-ring-1 {
+  position: absolute;
+  top: -10%;
+  right: -5%;
+  width: 50vw;
+  height: 50vw;
+  border: 1.5px solid rgba(139, 92, 246, 0.04);
+  border-radius: 50%;
+  animation: spin 80s linear infinite;
+  pointer-events: none;
+}
+
+.orbit-ring-1::after {
+  content: '';
+  position: absolute;
+  top: 15%;
+  left: 15%;
+  right: 15%;
+  bottom: 15%;
+  border: 1px dashed rgba(59, 130, 246, 0.06);
+  border-radius: 50%;
+}
+
+.orbit-ring-2 {
+  position: absolute;
+  bottom: -20%;
+  left: -10%;
+  width: 60vw;
+  height: 60vw;
+  border: 1.5px solid rgba(59, 130, 246, 0.04);
+  border-radius: 50%;
+  animation: reverse-spin 120s linear infinite;
+  pointer-events: none;
+}
+
+.orbit-ring-2::after {
+  content: '';
+  position: absolute;
+  top: 10%;
+  left: 10%;
+  right: 10%;
+  bottom: 10%;
+  border: 1px solid rgba(139, 92, 246, 0.02);
+  border-radius: 50%;
+}
+
+/* Floating particles */
+.particle {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(139, 92, 246, 0.15);
+  filter: blur(1px);
+  animation: float 20s ease-in-out infinite;
+  pointer-events: none;
+}
+
+.particle-1 { width: 6px; height: 6px; top: 15%; left: 25%; animation-duration: 25s; }
+.particle-2 { width: 8px; height: 8px; top: 45%; left: 80%; animation-duration: 35s; animation-delay: -5s; background: rgba(59, 130, 246, 0.15); }
+.particle-3 { width: 4px; height: 4px; top: 75%; left: 15%; animation-duration: 18s; animation-delay: -10s; }
+.particle-4 { width: 10px; height: 10px; top: 85%; left: 60%; animation-duration: 40s; animation-delay: -15s; background: rgba(139, 92, 246, 0.1); }
+.particle-5 { width: 5px; height: 5px; top: 25%; left: 70%; animation-duration: 22s; animation-delay: -8s; }
+
+/* Custom Glassmorphism styles */
+.glass-panel {
+  background: rgba(255, 255, 255, 0.65);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.03);
+}
+
+.glass-panel-hover {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.glass-panel-hover:hover {
+  background: rgba(255, 255, 255, 0.85);
+  border-color: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 12px 40px 0 rgba(31, 38, 135, 0.06);
+  transform: translateY(-2px);
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(139, 92, 246, 0.15);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(139, 92, 246, 0.3);
+}
+
+/* Animations */
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes reverse-spin {
+  0% { transform: rotate(360deg); }
+  100% { transform: rotate(0deg); }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0) translateX(0) scale(1); }
+  50% { transform: translateY(-20px) translateX(10px) scale(1.1); }
+}
